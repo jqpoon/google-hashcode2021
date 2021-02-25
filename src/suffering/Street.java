@@ -2,6 +2,7 @@ package suffering;
 
 import java.util.ArrayList;
 import java.util.List;
+import suffering.TrafficLight.Color;
 
 public class Street {
     private final String name;
@@ -14,14 +15,13 @@ public class Street {
     private List<Car> carsAtStart;
 
 
-    public Street(String name, int interStart, int interEnd, int travelTime,
-        TrafficLight lightStart, TrafficLight lightEnd) {
+    public Street(String name, int interStart, int interEnd, int travelTime) {
         this.name = name;
         this.interStart = interStart;
         this.interEnd = interEnd;
         this.travelTime = travelTime;
-        this.lightStart = lightStart;
-        this.lightEnd = lightEnd;
+        this.lightStart = new TrafficLight(Color.RED, this, false);
+        this.lightEnd = new TrafficLight(Color.RED, this, true);
         carsAtEnd = new ArrayList<>();
         carsAtStart = new ArrayList<>();
     }
