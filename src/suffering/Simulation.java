@@ -67,6 +67,11 @@ public class Simulation {
 
       Car car = new Car(streetsToVisit, carStreets);
       carsList.add(car);
+
+      /* Add car to the street it starts in. */
+      stName = carsString[1];
+      Street startingStreet = streetsMap.get(stName);
+      startingStreet.getCars().add(car);
     }
 
     return city;
