@@ -22,9 +22,14 @@ public class Street {
         this.interStart = interStart;
         this.interEnd = interEnd;
         this.travelTime = travelTime;
-        this.lightStart = new TrafficLight(Color.RED, this, false);
-        this.lightEnd = new TrafficLight(Color.RED, this, true);
+        this.lightStart = new TrafficLight(false);
+        this.lightEnd = new TrafficLight(true);
         cars = new ArrayList<>();
+
+        Intersection start = city.getIntersections().get(interStart);
+        start.getIncoming().put(this, lightStart);
+        Intersection end = city.getIntersections().get(interEnd);
+        end.getOutgoing().put(this, lightEnd);
     }
 
     public String getName() {
