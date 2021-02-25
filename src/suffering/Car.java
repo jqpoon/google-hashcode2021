@@ -13,6 +13,9 @@ public class Car {
     this.streetCount = streetCount;
     this.streets = streets;
     currentStreet = streets.get(0);
+    for (Street s : streets) {
+      s.getCars().add(this);
+    }
   }
 
   public int getStreetCount() {

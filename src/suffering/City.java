@@ -51,6 +51,7 @@ public class City {
         //for each incoming street, add to schedule according to ratio of cars
         map.put(s, s.getCars().size());
       }
+      map = generateTimings(map);
       schedule.setStreets(map);
       finalSchedule.addToSchedule(schedule);
     }
