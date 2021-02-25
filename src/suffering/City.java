@@ -42,14 +42,19 @@ public class City {
     this.intersections = intersections;
   }
 
-  public void generateSchedule() {
+  public Schedule generateSchedule() {
+    Schedule finalSchedule = new Schedule();
     for (Intersection i : intersections.values()) {
       IntersecSchedule schedule = new IntersecSchedule(i.getId());
+      HashMap<Street, Integer> map = new HashMap<>();
       for (Street s : i.getIncoming()) {
         //for each incoming street, add to schedule according to ratio of cars
-
+        map.put(s, s.getCars().size());
       }
+      schedule.setStreets(map);
+      finalSchedule.addToSchedule(schedule);
     }
+    return finalSchedule;
   }
 
   public HashMap<Street, Integer> generateTimings(HashMap<Street, Integer> map) {
