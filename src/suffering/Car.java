@@ -5,14 +5,14 @@ import java.util.List;
 public class Car {
 
   private int streetCount;
-  private final List<String> streetNames;
+  private final List<Street> streets;
   private int currentStreetNum;
-  private String currentStreet;
+  private Street currentStreet;
 
-  public Car(int streetCount, List<String> streetNames) {
+  public Car(int streetCount, List<Street> streets) {
     this.streetCount = streetCount;
-    this.streetNames = streetNames;
-    currentStreet = streetNames.get(0);
+    this.streets = streets;
+    currentStreet = streets.get(0);
   }
 
   public int getStreetCount() {
@@ -23,12 +23,12 @@ public class Car {
     this.streetCount = streetCount;
   }
 
-  public String getCurrentStreet() {
+  public Street getCurrentStreet() {
     return currentStreet;
   }
 
   public void setCurrentStreet(int currentStreetNum) {
-    this.currentStreet = streetNames.get(currentStreetNum);
+    this.currentStreet = streets.get(currentStreetNum);
     this.currentStreetNum = currentStreetNum;
   }
 
@@ -36,7 +36,11 @@ public class Car {
     setCurrentStreet(currentStreetNum + 1);
   }
 
-  public List<String> getStreetNames() {
-    return streetNames;
+  public Street getNextStreet() {
+    return streets.get(currentStreetNum + 1);
+  }
+
+  public List<Street> getStreets() {
+    return streets;
   }
 }

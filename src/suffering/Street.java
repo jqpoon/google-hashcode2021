@@ -1,5 +1,8 @@
 package suffering;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Street {
     private final String name;
     private final int interStart;
@@ -7,6 +10,8 @@ public class Street {
     private final int travelTime;
     private final TrafficLight lightStart;
     private final TrafficLight lightEnd;
+    private List<Car> carsAtEnd;
+    private List<Car> carsAtStart;
 
 
     public Street(String name, int interStart, int interEnd, int travelTime,
@@ -17,6 +22,8 @@ public class Street {
         this.travelTime = travelTime;
         this.lightStart = lightStart;
         this.lightEnd = lightEnd;
+        carsAtEnd = new ArrayList<>();
+        carsAtStart = new ArrayList<>();
     }
 
     public String getName() {
@@ -41,5 +48,13 @@ public class Street {
 
     public TrafficLight getLightEnd() {
         return lightEnd;
+    }
+
+    public List<Car> getCarsAtEnd() {
+        return carsAtEnd;
+    }
+
+    public List<Car> getCarsAtStart() {
+        return carsAtStart;
     }
 }
