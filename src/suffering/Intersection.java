@@ -1,13 +1,15 @@
 package suffering;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Intersection {
-    private final List<Street> incoming;
-    private final List<Street> outgoing;
+    private final HashMap<Street, TrafficLight> incoming;
+    private final HashMap<Street, TrafficLight> outgoing;
     private final int id;
 
-    public Intersection(List<Street> incoming, List<Street> outgoing, int id) {
+    public Intersection(HashMap<Street, TrafficLight> incoming,
+        HashMap<Street, TrafficLight> outgoing, int id) {
         this.incoming = incoming;
         this.outgoing = outgoing;
         this.id = id;
@@ -17,11 +19,11 @@ public class Intersection {
         return id;
     }
 
-    public List<Street> getIncoming() {
+    public HashMap<Street, TrafficLight> getIncoming() {
         return incoming;
     }
 
-    public List<Street> getOutgoing() {
+    public HashMap<Street, TrafficLight> getOutgoing() {
         return outgoing;
     }
 }

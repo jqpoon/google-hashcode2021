@@ -5,6 +5,9 @@ public class Street {
     private final int interStart;
     private final int interEnd;
     private final int travelTime;
+    private final TrafficLight lightStart;
+    private final TrafficLight lightEnd;
+
 
     public Street(String name, int interStart, int interEnd, int travelTime) {
         this.name = name;
@@ -27,5 +30,13 @@ public class Street {
 
     public int getTravelTime() {
         return travelTime;
+    }
+
+    public TrafficLight getLightStart() {
+        return lightStart;
+    }
+
+    public TrafficLight getLightEnd() {
+        return lightEnd;
     }
 }
