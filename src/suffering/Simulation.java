@@ -103,7 +103,7 @@ public class Simulation {
     City city = generateCity("e");
     Schedule schedule = city.generateSchedule();
     Submission submission = new Submission(schedule);
-    submission.createSubmissionFile("f_submission");
+    submission.createSubmissionFile("a_submission");
   }
 
 }
