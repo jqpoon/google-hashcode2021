@@ -62,6 +62,10 @@ public class City {
 
   public HashMap<Street, Integer> generateTimings(HashMap<Street, Integer> inputMap) {
 
+    if (inputMap.isEmpty()) {
+      return inputMap;
+    }
+
     Integer min = Collections.min(inputMap.values());
 
     for (var entry : inputMap.entrySet()) {

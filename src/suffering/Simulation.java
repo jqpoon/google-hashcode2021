@@ -12,7 +12,6 @@ import java.util.Map;
 public class Simulation {
 
   public static City generateCity(String t) throws IOException {
-    System.out.println();
     List<String> lines = Files.readAllLines(
         Path.of(System.getProperty("user.dir") + "/resources/" + t + ".txt"),
         StandardCharsets.US_ASCII);
@@ -74,6 +73,11 @@ public class Simulation {
     }
 
     /* Generate intersections. */
+    for (int i = 0; i < intersectionCount; i++) {
+      Intersection intersection = new Intersection(i);
+      intersectionMap.put(i, intersection);
+    }
+
     for (var entry : streetsMap.entrySet()) {
       Street street = entry.getValue();
       int interStart = street.getInterStart();
@@ -103,7 +107,6 @@ public class Simulation {
     Schedule schedule = city.generateSchedule();
     Submission submission = new Submission(schedule);
     submission.createSubmissionFile("a_submission");
-
   }
 
 }
