@@ -1,8 +1,10 @@
 package suffering;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class City {
 
@@ -58,9 +60,17 @@ public class City {
     return finalSchedule;
   }
 
-  public HashMap<Street, Integer> generateTimings(HashMap<Street, Integer> map) {
-    //input: A - 4, B - 2
-    // output: A - 2, B - 1
-    return null;
+  public HashMap<Street, Integer> generateTimings(HashMap<Street, Integer> inputMap) {
+
+    Integer min = Collections.min(inputMap.values());
+
+    for (var entry : inputMap.entrySet()) {
+      Street street = entry.getKey();
+      Integer value = entry.getValue();
+      Integer newValue = value / min;
+      inputMap.put(street, newValue);
+    }
+
+    return inputMap;
   }
 }
