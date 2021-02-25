@@ -1,3 +1,5 @@
+package suffering;
+
 public class Street {
     private final String name;
     private final int interStart;
