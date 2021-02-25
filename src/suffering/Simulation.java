@@ -84,11 +84,8 @@ public class Simulation {
       int interEnd = street.getInterEnd();
 
       /* Add a new intersection if it doesn't exist. */
-      if (intersectionMap.containsKey(interStart)) {
-        intersectionMap.put(interStart, new Intersection(interStart));
-      }
-      if (intersectionMap.containsKey(interEnd)) {
-        intersectionMap.put(interEnd, new Intersection(interEnd));
+      if (!intersectionMap.containsKey(interStart) || !intersectionMap.containsKey(interEnd)) {
+        throw new IllegalStateException("Intersection doesn't exist!");
       }
 
       /* Add this street to its connecting intersections. */
