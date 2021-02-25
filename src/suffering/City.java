@@ -67,6 +67,9 @@ public class City {
     }
 
     Integer min = Collections.min(inputMap.values());
+    if (min == 0) {
+      min = 1;
+    }
 
     for (var entry : inputMap.entrySet()) {
       Street street = entry.getKey();
