@@ -2,6 +2,7 @@ package suffering;
 
 import java.util.ArrayList;
 import java.util.List;
+import suffering.TrafficLight.Color;
 
 public class Street {
     private final String name;
@@ -10,20 +11,18 @@ public class Street {
     private final int travelTime;
     private final TrafficLight lightStart;
     private final TrafficLight lightEnd;
-    private List<Car> carsAtEnd;
-    private List<Car> carsAtStart;
+
+    private List<Car> cars;
 
 
-    public Street(String name, int interStart, int interEnd, int travelTime,
-        TrafficLight lightStart, TrafficLight lightEnd) {
+    public Street(String name, int interStart, int interEnd, int travelTime) {
         this.name = name;
         this.interStart = interStart;
         this.interEnd = interEnd;
         this.travelTime = travelTime;
-        this.lightStart = lightStart;
-        this.lightEnd = lightEnd;
-        carsAtEnd = new ArrayList<>();
-        carsAtStart = new ArrayList<>();
+        this.lightStart = new TrafficLight(false);
+        this.lightEnd = new TrafficLight(true);
+        cars = new ArrayList<>();
     }
 
     public String getName() {
@@ -50,11 +49,8 @@ public class Street {
         return lightEnd;
     }
 
-    public List<Car> getCarsAtEnd() {
-        return carsAtEnd;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public List<Car> getCarsAtStart() {
-        return carsAtStart;
-    }
 }
