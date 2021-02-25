@@ -9,11 +9,14 @@ public class Street {
     private final TrafficLight lightEnd;
 
 
-    public Street(String name, int interStart, int interEnd, int travelTime) {
+    public Street(String name, int interStart, int interEnd, int travelTime,
+        TrafficLight lightStart, TrafficLight lightEnd) {
         this.name = name;
         this.interStart = interStart;
         this.interEnd = interEnd;
         this.travelTime = travelTime;
+        this.lightStart = lightStart;
+        this.lightEnd = lightEnd;
     }
 
     public String getName() {
