@@ -32,6 +32,8 @@ public class IntersecSchedule {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(id);
         stringBuilder.append("\n");
+        stringBuilder.append(getStreetNum());
+        stringBuilder.append("\n");
         for(var entry: streets.entrySet()){
             stringBuilder.append(entry.getKey().getName());
             stringBuilder.append(" ");

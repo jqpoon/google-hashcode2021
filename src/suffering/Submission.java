@@ -19,11 +19,11 @@ public class Submission {
         File file = new File(name + ".txt");
         FileWriter writer = new FileWriter(file, true);
         int intersecNum = scheduleList.size();
+       writer.write(intersecNum + "\n");
         for(IntersecSchedule i : scheduleList){
-            writer.write(i.getStreetNum() + "\n");
             writer.write(i.print());
         }
-        writer.write(intersecNum + "\n");
+
         writer.close();
         return file;
     }

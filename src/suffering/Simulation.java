@@ -100,10 +100,10 @@ public class Simulation {
   }
 
   public static void main(String[] args) throws IOException {
-    City city = generateCity("a");
+    City city = generateCity("e");
     Schedule schedule = city.generateSchedule();
     Submission submission = new Submission(schedule);
-    submission.createSubmissionFile("a_submission");
+    submission.createSubmissionFile("f_submission");
   }
 
 }
