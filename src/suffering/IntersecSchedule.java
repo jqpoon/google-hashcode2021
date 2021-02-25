@@ -23,4 +23,21 @@ public class IntersecSchedule {
     public void addStreetToSchedule(Street street, int i){
         streets.put(street,i);
     }
+
+    public String getStreetNum(){
+        return String.valueOf(streets.size());
+    }
+
+    public String print(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(id);
+        stringBuilder.append("\n");
+        for(var entry: streets.entrySet()){
+            stringBuilder.append(entry.getKey().getName());
+            stringBuilder.append(" ");
+            stringBuilder.append(entry.getValue());
+            stringBuilder.append("\n");
+        }
+        return stringBuilder.toString();
+    }
 }
