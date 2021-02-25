@@ -11,8 +11,7 @@ import java.util.Map;
 
 public class Simulation {
 
-  public static void main(String[] args) throws IOException {
-
+  public City readFile() throws IOException {
     System.out.println();
     List<String> lines = Files.readAllLines(
         Path.of(System.getProperty("user.dir") + "/resources/a.txt"),
@@ -26,8 +25,13 @@ public class Simulation {
     int carCount = Integer.parseInt(split[3]);
     int bonusPoint = Integer.parseInt(split[4]);
 
+    City city = new City(simulationTime, bonusPoint);
+
     Map<String, Street> streetsMap = new HashMap<>();
     List<Car> carsList = new ArrayList<>();
+
+    city.setStreets(streetsMap);
+    city.setCars(carsList);
 
     String[] streetsString;
     int begin, end, length;
@@ -35,12 +39,12 @@ public class Simulation {
     for (int i = 1; i < streetCount + 1; i++) {
       line = lines.get(i);
       streetsString = line.split("\\s+");
-      begin =  Integer.parseInt(streetsString[0]);
+      begin = Integer.parseInt(streetsString[0]);
       end = Integer.parseInt(streetsString[1]);
       name = streetsString[2];
       length = Integer.parseInt(streetsString[3]);
 
-      Street street = new Street(name, begin, end, length);
+      Street street = new Street(city, name, begin, end, length);
       streetsMap.put(name, street);
     }
 
@@ -65,5 +69,11 @@ public class Simulation {
       carsList.add(car);
     }
 
+    return city;
   }
+
+  public static void main(String[] args) {
+
+  }
+
 }

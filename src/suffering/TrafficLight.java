@@ -9,13 +9,16 @@ public class TrafficLight {
     }
 
     private Color curColor;
-    private final Street street;
+    private Street street;
     private final boolean end;
 
-    public TrafficLight(Color curColor, Street street, boolean end) {
-        this.curColor = curColor;
-        this.street = street;
+    public TrafficLight(boolean end) {
+        this.curColor = RED;
         this.end = end;
+    }
+
+    public void setCurColor(Color curColor) {
+        this.curColor = curColor;
     }
 
     public void turnGreen(){
