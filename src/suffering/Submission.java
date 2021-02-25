@@ -1,10 +1,8 @@
 package suffering;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.rmi.activation.ActivationGroup_Stub;
 import java.util.List;
 
 public class Submission {
@@ -17,8 +15,8 @@ public class Submission {
         scheduleList = schedule.getSchedule();
     }
 
-   public File createSubmissionFile() throws IOException {
-        File file = new File("submission.txt");
+   public File createSubmissionFile(String name) throws IOException {
+        File file = new File(name + ".txt");
         FileWriter writer = new FileWriter(file, true);
         int intersecNum = scheduleList.size();
         writer.write(intersecNum + "\n");
@@ -37,6 +35,6 @@ public class Submission {
         sc.addStreetToSchedule(new Street("me", 3,4, 2), 1);
         s.addToSchedule(sc);
         Submission sub = new Submission(s);
-        sub.createSubmissionFile();
+        sub.createSubmissionFile("submission");
     }
 }
