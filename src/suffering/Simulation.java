@@ -11,10 +11,10 @@ import java.util.Map;
 
 public class Simulation {
 
-  public City readFile() throws IOException {
+  public static City generateCity(String t) throws IOException {
     System.out.println();
     List<String> lines = Files.readAllLines(
-        Path.of(System.getProperty("user.dir") + "/resources/a.txt"),
+        Path.of(System.getProperty("user.dir") + "/resources/" + t + ".txt"),
         StandardCharsets.US_ASCII);
 
     String problemStatement = lines.get(0);
@@ -98,7 +98,11 @@ public class Simulation {
     return city;
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
+    City city = generateCity("a");
+    Schedule schedule = city.generateSchedule();
+    Submission submission = new Submission(schedule);
+    submission.createSubmissionFile("a_submission");
 
   }
 

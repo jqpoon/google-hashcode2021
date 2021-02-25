@@ -29,6 +29,8 @@ public class Submission {
     }
 
     public static void main(String[] args) throws IOException {
+
+
         Schedule s = new Schedule();
         IntersecSchedule sc = new IntersecSchedule(1);
         sc.addStreetToSchedule(new Street("hello", 1,2,3), 2);
